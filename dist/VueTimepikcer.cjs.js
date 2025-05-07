@@ -74,6 +74,7 @@ var script = {
     dropDirection: { type: String, default: 'down' },
     dropOffsetHeight: { type: [ Number, String ] },
     containerId: { type: String },
+    appendToBody: { type: Boolean, default: false },
 
     manualInput: { type: Boolean, default: false },
     manualInputTimeout: { type: [ Number, String ] },
@@ -1163,6 +1164,9 @@ var script = {
 
     setDropdownState (toShow, fromUserClick = false) {
       if (toShow) {
+        if (this.appendToBody) {
+          this.appendDropdownToBody();
+        }
         this.keepFocusing();
         if (this.autoDirectionEnabled) {
           this.checkDropDirection();
@@ -1179,7 +1183,54 @@ var script = {
       } else {
         this.showDropdown = false;
         this.$emit('close');
+        if (this.appendToBody) {
+          this.removeDropdownFromBody();
+        }
       }
+    },
+
+    appendDropdownToBody () {
+      const dropdown = this.$refs && this.$refs.dropdown;
+      const body = document.getElementsByTagName('body')[0];
+      if (body && dropdown) {
+        window.addEventListener('scroll', this.updateDropdownPos);
+        dropdown.classList.add('vue__time-picker-dropdown');
+        this.updateDropdownPos();
+        body.appendChild(dropdown);
+      }
+    },
+
+    updateDropdownPos () {
+      if (!this.appendToBody) { return }
+      const dropdown = this.$refs && this.$refs.dropdown;
+      const body = document.getElementsByTagName('body')[0];
+      if (body && dropdown) {
+        const box = this.$el.getBoundingClientRect();
+        if (this.dropdownDirClass === 'drop-up') {
+          dropdown.style.bottom = `${window.innerHeight - box.y}px`;
+          dropdown.style.top = 'auto';
+        } else {
+          dropdown.style.top = `${box.y + box.height}px`;
+          dropdown.style.bottom = 'auto';
+        }
+        dropdown.style.left = `${box.x}px`;
+      }
+    },
+
+    removeDropdownFromBody () {
+      const dropdown = this.$refs && this.$refs.dropdown;
+      const body = document.getElementsByTagName('body')[0];
+      if (body && dropdown && body.contains(dropdown)) {
+        body.removeChild(dropdown);
+      }
+      if (dropdown) {
+        dropdown.classList.remove('vue__time-picker-dropdown');
+        dropdown.style.top = '';
+        dropdown.style.bottom = '';
+        dropdown.style.left = '';
+        this.$el.appendChild(dropdown);
+      }
+      window.removeEventListener('scroll', this.updateDropdownPos);
     },
 
     blurEvent () {
