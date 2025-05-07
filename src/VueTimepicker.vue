@@ -2200,7 +2200,7 @@ export default {
   box-sizing: border-box;
 }
 
-.vue__time-picker input.vue__time-picker-input {
+.vue__time-picker input.display-time {
   border: 1px solid #d2d2d2;
   width: 10em;
   height: 2.2em;
@@ -2212,13 +2212,13 @@ export default {
   padding-left: 1.8em;
 }
 
-.vue__time-picker input.vue__time-picker-input.invalid:not(.skip-error-style) {
+.vue__time-picker input.display-time.invalid:not(.skip-error-style) {
   border-color: #cc0033;
   outline-color: #cc0033;
 }
 
-.vue__time-picker input.vue__time-picker-input:disabled,
-.vue__time-picker input.vue__time-picker-input.disabled {
+.vue__time-picker input.display-time:disabled,
+.vue__time-picker input.display-time.disabled {
   color: #d2d2d2;
 }
 
@@ -2240,7 +2240,7 @@ export default {
 
 .vue__time-picker .controls > * {
   cursor: pointer;
-  
+
   width: auto;
   display: flex;
   flex-flow: column nowrap;
@@ -2315,7 +2315,8 @@ export default {
   bottom: 0;
 }
 
-.vue__time-picker .dropdown {
+.vue__time-picker .dropdown,
+.vue__time-picker-dropdown {
   position: absolute;
   z-index: 5;
   top: calc(2.2em + 2px);
@@ -2333,12 +2334,14 @@ export default {
   z-index: 100;
 }
 
-.vue__time-picker .dropdown.drop-up {
+.vue__time-picker .dropdown.drop-up,
+.vue__time-picker-dropdown.drop-up {
   top: auto;
   bottom: calc(2.2em + 1px);
 }
 
-.vue__time-picker .dropdown .select-list {
+.vue__time-picker .dropdown .select-list,
+.vue__time-picker-dropdown .select-list {
   width: 10em;
   height: 10em;
   overflow: hidden;
@@ -2349,11 +2352,14 @@ export default {
 }
 
 .vue__time-picker .dropdown .select-list:focus,
-.vue__time-picker .dropdown .select-list:active {
+.vue__time-picker .dropdown .select-list:active,
+.vue__time-picker-dropdown .select-list:focus,
+.vue__time-picker-dropdown .select-list:active {
   outline: 0;
 }
 
-.vue__time-picker .dropdown ul {
+.vue__time-picker .dropdown ul,
+.vue__time-picker-dropdown ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -2366,11 +2372,15 @@ export default {
 
 .vue__time-picker .dropdown ul.minutes,
 .vue__time-picker .dropdown ul.seconds,
-.vue__time-picker .dropdown ul.apms{
+.vue__time-picker .dropdown ul.apms,
+.vue__time-picker-dropdown ul.minutes,
+.vue__time-picker-dropdown ul.seconds,
+.vue__time-picker-dropdown ul.apms {
   border-left: 1px solid #fff;
 }
 
-.vue__time-picker .dropdown ul li {
+.vue__time-picker .dropdown ul li,
+.vue__time-picker-dropdown ul li {
   list-style: none;
   text-align: center;
   padding: 0.3em 0;
@@ -2378,7 +2388,9 @@ export default {
 }
 
 .vue__time-picker .dropdown ul li:not(.hint):not([disabled]):hover,
-.vue__time-picker .dropdown ul li:not(.hint):not([disabled]):focus {
+.vue__time-picker .dropdown ul li:not(.hint):not([disabled]):focus,
+.vue__time-picker-dropdown ul li:not(.hint):not([disabled]):hover,
+.vue__time-picker-dropdown ul li:not(.hint):not([disabled]):focus  {
   background: rgba(0,0,0,.08);
   color: #161616;
   cursor: pointer;
@@ -2386,19 +2398,25 @@ export default {
 
 .vue__time-picker .dropdown ul li:not([disabled]).active,
 .vue__time-picker .dropdown ul li:not([disabled]).active:hover,
-.vue__time-picker .dropdown ul li:not([disabled]).active:focus {
+.vue__time-picker .dropdown ul li:not([disabled]).active:focus,
+.vue__time-picker-dropdown ul li:not([disabled]).active,
+.vue__time-picker-dropdown ul li:not([disabled]).active:hover,
+.vue__time-picker-dropdown ul li:not([disabled]).active:focus {
   background: #41B883;
   color: #fff;
 }
 
 .vue__time-picker .dropdown ul li[disabled],
-.vue__time-picker .dropdown ul li[disabled]:hover {
+.vue__time-picker .dropdown ul li[disabled]:hover,
+.vue__time-picker-dropdown ul li[disabled],
+.vue__time-picker-dropdown ul li[disabled]:hover {
   background: transparent;
   opacity: 0.3;
   cursor: not-allowed;
 }
 
-.vue__time-picker .dropdown .hint {
+.vue__time-picker .dropdown .hint,
+.vue__time-picker-dropdown .hint {
   color: #a5a5a5;
   cursor: default;
   font-size: 0.8em;
