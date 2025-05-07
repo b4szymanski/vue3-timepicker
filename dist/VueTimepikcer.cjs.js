@@ -1222,6 +1222,7 @@ var script = {
     removeDropdownFromBody () {
       const dropdown = this.$refs && this.$refs.dropdown;
       const body = document.getElementsByTagName('body')[0];
+      console.log('removeDropdownFromBody', dropdown, body);
       if (body && dropdown && body.contains(dropdown)) {
         body.removeChild(dropdown);
       }
