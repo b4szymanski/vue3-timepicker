@@ -1162,6 +1162,7 @@ var script = {
 
     setDropdownState (toShow, fromUserClick = false) {
       if (toShow) {
+        console.warn('appendToBody state', this.appendToBody);
         if (this.appendToBody) {
           this.appendDropdownToBody();
         }
@@ -1188,6 +1189,7 @@ var script = {
     },
 
     appendDropdownToBody () {
+      console.warn('appendDropdownToBody', this.$refs);
       const dropdown = this.$refs && this.$refs.dropdown;
       const body = document.getElementsByTagName('body')[0];
       if (body && dropdown) {

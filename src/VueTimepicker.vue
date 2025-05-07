@@ -1190,6 +1190,7 @@ export default {
     },
 
     appendDropdownToBody () {
+      console.warn('appendDropdownToBody', this.$refs)
       const dropdown = this.$refs && this.$refs.dropdown
       const body = document.getElementsByTagName('body')[0]
       if (body && dropdown) {
