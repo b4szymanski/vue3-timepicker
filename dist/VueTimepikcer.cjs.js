@@ -2084,6 +2084,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       : vue.createCommentVNode("v-if", true),
     vue.withDirectives(vue.createVNode("div", {
       class: ["dropdown", [$options.dropdownDirClass]],
+      ref: "dropdown",
       tabindex: "-1",
       style: $options.inputWidthStyle,
       onMouseup: _cache[42] || (_cache[42] = (...args) => ($options.keepFocusing(...args))),
