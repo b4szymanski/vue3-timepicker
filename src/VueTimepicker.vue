@@ -1163,6 +1163,7 @@ export default {
 
     setDropdownState (toShow, fromUserClick = false) {
       if (toShow) {
+        console.warn('appendToBody state', this.appendToBody)
         if (this.appendToBody) {
           this.appendDropdownToBody()
         }

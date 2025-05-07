@@ -1,6 +1,6 @@
 {
   "name": "@b4szymanski/vue3-timepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A dropdown time picker (hour|minute|second) for Vue 3.x, with flexible time format support, original author is Phoenix Wong <phoenixyfwong@gmail.com>",
   "author": "Bart Szymański",
   "scripts": {
