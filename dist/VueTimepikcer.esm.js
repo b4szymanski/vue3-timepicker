@@ -2151,7 +2151,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }), 128 /* KEYED_FRAGMENT */))
           : createCommentVNode("v-if", true),
         createCommentVNode(" / Common Keyboard Support "),
-        createCommentVNode("\n        Advanced Keyboard Support\n        Addeds hundreds of additional event lisenters\n      "),
+        createCommentVNode("\r\n        Advanced Keyboard Support\r\n        Addeds hundreds of additional event lisenters\r\n      "),
         ($props.advancedKeyboard)
           ? (openBlock(true), createBlock(Fragment, { key: 1 }, renderList($options.columnsSequence, (column) => {
               return (openBlock(), createBlock(Fragment, { key: column }, [

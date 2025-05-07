@@ -2153,7 +2153,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }), 128 /* KEYED_FRAGMENT */))
           : vue.createCommentVNode("v-if", true),
         vue.createCommentVNode(" / Common Keyboard Support "),
-        vue.createCommentVNode("\n        Advanced Keyboard Support\n        Addeds hundreds of additional event lisenters\n      "),
+        vue.createCommentVNode("\r\n        Advanced Keyboard Support\r\n        Addeds hundreds of additional event lisenters\r\n      "),
         ($props.advancedKeyboard)
           ? (vue.openBlock(true), vue.createBlock(vue.Fragment, { key: 1 }, vue.renderList($options.columnsSequence, (column) => {
               return (vue.openBlock(), vue.createBlock(vue.Fragment, { key: column }, [
